@@ -1,6 +1,15 @@
-get_descriptive_stats_df <- function(data, group_by_cols, value_col, stats_settings)
-  data.frame(get_descriptive_stats(data, group_by_cols, value_col, stats_settings))
-
+#' Calculate descriptive statistics for a data frame
+#'
+#' This function takes a data frame and specifications of grouping and stats as input and
+#' outputs a list which have two fixed components: label and depth, and several custom components which
+#' are stores the stats specified in stats_settings.
+#'
+#' @param data Data frame that contains the data 
+#' @param group_by_cols Character object that holds the column names to be grouped
+#' @param value_col Column name of the numeric data where the stats will be calculated on
+#' @param stats_settings List of stats settings
+#' @return A list that contains the stats result requested with labels and depths for each group labels
+#' @export
 get_descriptive_stats <- function(data, group_by_cols, value_col, stats_settings)
   descriptive_stats_rec(data, list(), group_by_cols, value_col, stats_settings, 0)
 
