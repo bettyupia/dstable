@@ -36,7 +36,7 @@ descriptive_stats_rec <- function(data, stats, group_by_cols, value_col, stats_s
       stats, 
       descriptive_stats_rec(
         data[data[[group_col]] == group,],
-        stats, 
+        list(), 
         group_by_cols[-1], 
         value_col, 
         stats_settings, 
